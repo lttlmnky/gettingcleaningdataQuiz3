@@ -59,7 +59,7 @@ fileUrl1 = "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv"
 fileUrl2 = "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FEDSTATS_Country.csv"
 download.file(fileUrl1, destfile = "./data/gdp.csv", method = "curl")
 download.file(fileUrl2, destfile = "./data/educational.csv", method = "curl")
-## first 4 rows were blank. According to the source, there are 217 economies (plust a header)
+## first 4 rows were blank. According to the source, there are 217 economies (plus a header)
 GDP = read.csv("./data/gdp.csv", skip = 4, nrows = 218); Ed_Data <- read.csv("./data/educational.csv")
 
 #subset "CountryCode" to remove NAs, also remove blanks
