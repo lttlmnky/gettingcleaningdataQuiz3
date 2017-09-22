@@ -62,16 +62,18 @@ download.file(fileUrl2, destfile = "./data/educational.csv", method = "curl")
 ## first 4 rows were blank. According to the source, there are 217 economies (plust a header)
 GDP = read.csv("./data/gdp.csv", skip = 4, nrows = 218); Ed_Data <- read.csv("./data/educational.csv")
 
-#subset "CountryCode" to remove NAs, also remove 
+#subset "CountryCode" to remove NAs, also remove blanks
 GDP <- subset(GDP, !is.na(X) & X!= "", select = c("X", "X.1", "X.3", "X.4"))
 GDP <- dplyr::rename(GDP, CountryCode = X)
 
+#merge two data sets
 Merged <- merge(GDP, Ed_Data, all=TRUE, by.x = "CountryCode")
 
+#find how many ids matched
 num_matches <- sum(!is.na(unique(Merged$X.1)))
 
 arranged_data <- arrange(Merged, desc(X.1))
-
+#country number 13
 arranged_data[13, "Long.Name"]
 ```
 
