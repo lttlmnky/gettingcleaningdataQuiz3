@@ -11,7 +11,7 @@ Create a logical vector that identifies the households on greater than 10 acres 
 which(agricultureLogical)
 
 What are the first 3 values that result?
-
+...
 if(!file.exists("./data")) {dir.create("./data")}
 Url1 = "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv"
 download.file(Url1, destfile = "./data/community.csv", method = "curl")
@@ -19,7 +19,7 @@ community = read.csv("./data/community.csv")
 
 agricultureLogical <- community$ACR > 2 & community$AGS > 5
 which(agricultureLogical)
-
+...
 ##2
 
 Using the jpeg package read in the following picture of your instructor into R
